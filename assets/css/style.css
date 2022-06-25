@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .burger {
+    display: none;
+    z-index: 100;
+  }
+  .social-media {
+    padding-left: 7rem;
+    position: absolute;
+    right: 15%;
+  }
