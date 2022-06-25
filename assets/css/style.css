@@ -167,3 +167,17 @@
 .featured-book-cover {
     margin-top: 1rem;
   }
+
+.flex-wrap {
+    flex-wrap: wrap;
+  }
+.featured-book-img {
+    width: 80%;
+  }
+.featured-books {
+    display: flex;
+    height: 95%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
