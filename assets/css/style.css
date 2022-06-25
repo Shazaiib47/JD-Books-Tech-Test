@@ -3,6 +3,41 @@
     padding: 0;
     box-sizing: border-box;
   }
+  
+  .burger {
+    display: none;
+    z-index: 100;
+  }
+  .social-media {
+    padding-left: 7rem;
+    position: absolute;
+    right: 15%;
+  }
+  .social-media a,
+  .social-media-footer a {
+    color: #233646;
+  }
+  .burger.active .line2 {
+    display: none;
+  }
+  
+  .burger.active .line1 {
+    transform-origin: center;
+    transform: rotate(50deg);
+  }
+  
+  .burger.active .line3 {
+    transform-origin: center;
+    transform: translateY(-7px) rotate(133deg);
+  }
+  
+  .line {
+    width: 2rem;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+  }
+  
   body {
     font-family: 'DM Sans', sans-serif;
     font-family: 'Exo', sans-serif;
@@ -61,17 +96,7 @@
   .nav-links li.selected {
     background-color: rgb(0, 156, 156);
   }
-
-  .burger {
-    display: none;
-    z-index: 100;
-  }
-  .social-media {
-    padding-left: 7rem;
-    position: absolute;
-    right: 15%;
-  }
-
+  
   main {
     width: 60%;
     margin: 0 auto;
@@ -92,8 +117,8 @@
     justify-content: center;
     flex: 4 1 0;
   }
-
-.book {
+  
+  .book {
     margin-right: 2rem;
     margin-bottom: 2rem;
     width: 45%;
@@ -102,13 +127,13 @@
     padding: 1rem;
   }
   
-.book-cover {
+  .book-cover {
     width: 100%;
     margin-right: 1.5rem;
     flex: 1 1 0;
   }
   
-.book-content {
+  .book-content {
     flex: 1 1 0;
   }
 
@@ -118,37 +143,32 @@
     height: 100%;
   }
   
-.book-title {
+  .book-title {
     font-size: 1.5rem;
   }
   
-.author {
+  .author {
     font-weight: lighter;
     font-size: 1.3rem;
     font-style: italic;
   }
-
-.pages {
+  .pages {
     font-size: 1.3rem;
   }
-
-.little-info {
+  .little-info {
     font-size: 1.2rem;
   }
-
-.featured {
+  .featured {
     flex: 1 1 0;
     border: 2px solid black;
     padding: 2rem;
     margin-bottom: 3rem;
   }
-
-.featured-title {
+  .featured-title {
     text-align: center;
     font-size: 3rem;
   }
-
-.featured-book {
+  .featured-book {
     width: 100%;
     height: 39rem;
     margin: 2rem 0;
@@ -156,36 +176,113 @@
     border: 2px solid black;
   }
   
-.featured-book-content,
-.featured-book-cover {
+  .featured-book-content,
+  .featured-book-cover {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-
-.featured-book-cover {
+  .featured-book-cover {
     margin-top: 1rem;
   }
-
-.flex-wrap {
+  .flex-wrap {
     flex-wrap: wrap;
   }
-.featured-book-img {
+  .featured-book-img {
     width: 80%;
   }
-.featured-books {
+  .featured-books {
     display: flex;
     height: 95%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-
-.social-media-footer {
+  .social-media-footer {
     display: none;
   }
   .nav-links.active {
     display: flex;
     transform: translateX(0);
   }
+  
+  @media screen and (max-width: 1378px) {
+    main {
+      width: 70%;
+    }
+    .social-media {
+      position: initial;
+    }
+  }
+  
+  @media screen and (max-width: 1042px) {
+    main {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 732px) {
+    html {
+      font-size: 59%;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+    }
+    .nav-title {
+      margin-left: 0;
+    }
+    #logo {
+      display: none;
+    }
+    .nav-links {
+      display: none;
+    }
+    .nav-links {
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      padding: 3rem;
+      left: 0;
+      width: 100%;
+      transform: translateX(100%);
+    }
+    .featured {
+      order: 1;
+      width: 90%;
+      margin-bottom: 3rem;
+    }
+    .featured-book-img {
+      width: 40%;
+    }
+    .books {
+      order: 2;
+      flex: 4 1 auto;
+    }
+    .burger {
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 572px) {
+    .social-media {
+      display: none;
+    }
+    main {
+      width: 90%;
+    }
+    .book {
+      width: 100%;
+    }
+  
+    .social-media-footer {
+      display: flex;
+      margin: 3rem 0;
+      justify-content: center;
+    }
+  }
+  
