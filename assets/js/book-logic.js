@@ -3,11 +3,10 @@ const fetchData = async () => {
         await fetch("https://www.googleapis.com/books/v1/volumes?q=HTML5")
     ).json();
     const normalBooks = res.items.slice(0, 8);
-    const featuredBooks = res.items.slice(8,10);
     let markup = "";
     normalBooks.forEach((obj) => {
         markup += `
-        <div id="book" class="book d-flex">
+        <div class="book d-flex">
         <div class="book-cover">
         <img class="book-img" src="${
             obj.volumeInfo.imageLinks.thumbnail}" alt"" />
@@ -23,6 +22,7 @@ const fetchData = async () => {
      </div>
         `;
     });
-    document.querySelector(".book").insertAdjacentHTML("beforebegin", markup);
+    document.querySelector(".books").insertAdjacentHTML("beforebegin", markup);
+    
   };
   fetchData();
