@@ -181,3 +181,11 @@
     align-items: center;
     justify-content: center;
   }
+
+.social-media-footer {
+    display: none;
+  }
+  .nav-links.active {
+    display: flex;
+    transform: translateX(0);
+  }
