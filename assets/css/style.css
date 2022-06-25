@@ -92,4 +92,23 @@
     justify-content: center;
     flex: 4 1 0;
   }
+
+.book {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    width: 45%;
+    height: 25rem;
+    border: 2px solid black;
+    padding: 1rem;
+  }
+  
+.book-cover {
+    width: 100%;
+    margin-right: 1.5rem;
+    flex: 1 1 0;
+  }
+  
+.book-content {
+    flex: 1 1 0;
+  }
   
