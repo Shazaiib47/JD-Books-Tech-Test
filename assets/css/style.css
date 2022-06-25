@@ -111,4 +111,27 @@
 .book-content {
     flex: 1 1 0;
   }
+
+.book-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
   
+.book-title {
+    font-size: 1.5rem;
+  }
+  
+.author {
+    font-weight: lighter;
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+
+.pages {
+    font-size: 1.3rem;
+  }
+
+.little-info {
+    font-size: 1.2rem;
+  }
