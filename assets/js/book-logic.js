@@ -1,11 +1,13 @@
-const fetchData = async () => {
-    let res = await (
-        await fetch("https://www.googleapis.com/books/v1/volumes?q=HTML5")
-    ).json();
-    const normalBooks = res.items.slice(0, 8);
-    let markup = "";
-    normalBooks.forEach((obj) => {
-        markup += `
+/*jshint esversion: 8 */
+
+const fetchData = async() => {
+	let res = await (
+		await fetch("https://www.googleapis.com/books/v1/volumes?q=HTML5")
+	).json();
+	const normalBooks = res.items.slice(0, 8);
+	let markup = "";
+	normalBooks.forEach((obj) => {
+		markup += `
         <div class="book d-flex">
         <div class="book-cover">
         <img class="book-img" src="${
@@ -21,14 +23,14 @@ const fetchData = async () => {
         </div>
      </div>
         `;
-    });
-    document.querySelector(".books").insertAdjacentHTML("afterbegin", markup);
-    
-    let nBooks = document.getElementsByClassName('book');
-    for (let i = 0; i < nBooks.length; i++) {
-      nBooks[i].addEventListener('click', () => {
-          nBooks[i].classList.toggle("is-selected")
-      });
-      }
-  };
-  fetchData();
+	});
+	document.querySelector(".books").insertAdjacentHTML("afterbegin", markup);
+
+	let nBooks = document.getElementsByClassName('book');
+	for (let i = 0; i < nBooks.length; i++) {
+		nBooks[i].addEventListener('click', () => {
+			nBooks[i].classList.toggle("is-selected");
+		});
+	}
+};
+fetchData();
