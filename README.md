@@ -19,7 +19,7 @@ The webpage is completely responsive and has JavaScript functionality to ensure 
 
 5) Book description has a max character limit of 140 characters.
 
-## This is cross-browser compatible and has been used on Google Chrome, Firefox and Microsoft Edge
+## This is cross-browser compatible and has been used on Google Chrome, Firefox, Safari and Microsoft Edge
 
 ## Issues Faced / Functional Errors
 
@@ -44,3 +44,7 @@ The below image demonstrates the issue, as it highlights some of the cards.
 This issue revolves around the localStorage functionality. The use of storing upon browser reload. In this case I had to ensure the selected cards had their click state saved upon browser refresh. As of now this only works on 1 card and not multiple; but the click event on-and-off still works as intended.
 
 I will be amending this issue to ensure this has been resolved through the use of function debugging.
+
+## Validation
+
+This has been checked and ran through multiple Identifiers, checkers and errors using resources such as JSHint and NU HTML Checker
