@@ -13,9 +13,9 @@ const featuredBooks = res.items.slice(8,10);
         </div>
         <div class="featured-book-content">
         <h4 class="book-title">${obj.volumeInfo.title}</h4>
-        <h5 class="author">${obj.volumeInfo.authors[0]}</h5>
-        <h6 class="pages">${obj.volumeInfo.pageCount[0]}</h6>
-        <class="little-info">${obj.volumeInfo.description.substr(
+        <h5 class="author">${obj.volumeInfo.authors}</h5>
+        <h6 class="pages">${obj.volumeInfo.pageCount}</h6>
+        <p class="little-info">${obj.volumeInfo.description.substr(
             0, 140
         )}</p>
         </div>
