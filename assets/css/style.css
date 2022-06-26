@@ -190,7 +190,7 @@
     flex-wrap: wrap;
   }
   .featured-book-img {
-    width: 80%;
+    width: 20%;
   }
   .featured-books {
     display: flex;
@@ -206,6 +206,10 @@
     display: flex;
     transform: translateX(0);
   }
+
+.is-selected {
+    background-color: red;
+}
   
   @media screen and (max-width: 1378px) {
     main {
