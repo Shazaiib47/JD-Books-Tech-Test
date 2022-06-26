@@ -22,20 +22,12 @@ const fetchData = async () => {
      </div>
         `;
     });
-    document.querySelector(".books").insertAdjacentHTML("beforebegin", markup);
+    document.querySelector(".books").insertAdjacentHTML("afterbegin", markup);
     
     let nBooks = document.getElementsByClassName('book');
-  
     for (let i = 0; i < nBooks.length; i++) {
       nBooks[i].addEventListener('click', () => {
-          const classes = nBooks[i].classList;
-          if (classes.contains('is-selected')) {
-              
-            nBooks[i].classList.remove('is-selected');
-          } else {
-              
-              nBooks[i].classList.add('is-selected');
-          }
+          nBooks[i].classList.toggle("is-selected")
       });
       }
   };
