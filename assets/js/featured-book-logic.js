@@ -23,20 +23,12 @@ const featuredBooks = res.items.slice(8,10);
         }
         `;
     });
-    document.querySelector(".featured-books").insertAdjacentHTML("beforebegin", markup);
-
-    let fBooks = document.getElementsByClassName('featured-book');
+    document.querySelector(".featured-books").insertAdjacentHTML("afterbegin", markup);
   
+    let fBooks = document.getElementsByClassName('featured-book');
     for (let i = 0; i < fBooks.length; i++) {
       fBooks[i].addEventListener('click', () => {
-          const classes = fBooks[i].classList;
-          if (classes.contains('is-selected')) {
-              
-            fBooks[i].classList.remove('is-selected');
-          } else {
-              
-              fBooks[i].classList.add('is-selected');
-          }
+          fBooks[i].classList.toggle("is-selected")
       });
       }
 };
