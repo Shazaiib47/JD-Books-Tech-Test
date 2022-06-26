@@ -223,7 +223,7 @@ main {
 }
 
 .is-selected {
-	background-color: red;
+	background-color: grey;
 }
 
 @media screen and (max-width: 1378px) {
