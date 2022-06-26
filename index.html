@@ -2,36 +2,51 @@
 <html lang="en">
 
 <head>
+  <!--Main Meta tags containing X-AU-Compatibility for IE7 and viewport properties-->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--Link to Google Font API and URLs to fetch to use in HTML/CSS-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!--Link to Font Awesome CDN-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--Link to the Google Fonts API to fetch a font called DM Sans to use in website-->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Exo&family=Noto+Sans&display=swap" rel="stylesheet">
+  <!--Link to the CSS Stylesheet that contains all properties -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  <!--Title of Webpage-->
   <title>Book Store</title>
 </head>
 
 <body>
+  <!--Header Start-->
   <header class="d-flex">
+    <!--Logo for Webpage with Nav Title-->
     <img id="logo" src="./assets/images/logo.png" alt="logo" />
     <h1 class="nav-title">The Book Store </h1>
+    <!--Div containing Social Media Links-->
     <div class="social-media d-flex">
       <a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
       <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
       <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
     </div>
   </header>
+  <!--Header End-->
+  
+  <!--Nav Begins here-->
   <nav>
+    <!-- Responsive Hamburger Properties-->
     <div class="burger">
       <div class="line line1"></div>
       <div class="line line2"></div>
       <div class="line line3"></div>
     </div>
+    <!--Navigation Links-->
     <ul class="nav-links d-flex">
+      <!--Selected Class to illustrate what tab is highlighted, in this case it is Home-->
       <li class="selected"><a href="index.html" style="text-decoration: none;color: black;">Home</a>
       </li>
       <li><a href="#" style="text-decoration: none;color: black;">Books</a>
@@ -45,25 +60,30 @@
     </ul>
   </nav>
   <main>
+    <!--Paragraph to Illustrate what the Website is about-->
     <p class="content"> Welcome to the official JD Bookstore! Here you can find our top curated books to help you gain 
       your knowledge that you need to become a seasoned developer. Below are some of our top picks 
       and you can find featured books that we recommend on the right! 
       Enjoy your browsing, and don’t forget to bookmark us! </p>
     <div class="d-flex mt-5 flex-wrap">
+      <!--Div for Main Books-->
       <div class="books">
       </div>
+      <!--Div for Featured Books-->
       <div class="featured">
         <h4 class="featured-title"> Featured</h4>
         <div class="featured-books">
         </div>
       </div>
     </div>
+    <!-- Social Media Links in Footer that will show in smaller screen sizes using Font Awesome Icons-->
     <div class="social-media-footer d-flex">
       <a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
       <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
       <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
     </div>
   </main>
+  <!--Script Tags-->
   <script src="assets/js/script.js">
   </script>
   <script src="assets/js/book-logic.js">
@@ -71,5 +91,4 @@
   <script src="assets/js/featured-book-logic.js">
   </script>
 </body>
-
 </html>
