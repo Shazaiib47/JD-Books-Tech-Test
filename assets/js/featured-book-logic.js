@@ -1,8 +1,13 @@
+/* Making an API Call by declaring a variable, and using async to return back a response from below API.
+   Await is used below to wait for a response within the async block to return a result from API.
+   Fetch being used to request to the server via api below and load dynamic information on the webpage */
 const getData = async () => {
     let res = await (await fetch("https://www.googleapis.com/books/v1/volumes?q=HTML5")).json();
+    /* Slicing sequence through API above to begin at 8 and end at 10, fetching only 2 books for featured. */
     const featuredBooks = res.items.slice(8, 10);
+     /* Declared a variable called markup to dynamically create a card using divs and assigning classes
+    and using json classes from above API to append to each div to fetch the required data */
     let markup = "";
-    // creating markup for each card
     featuredBooks.forEach((obj) => {
       markup += `
             <div id=${obj.volumeInfo.title
@@ -22,23 +27,29 @@ const getData = async () => {
          </div>
             `;
     });
-    // inserting markup
+     /* The below inserts the above markup by targeting .featured-books in HTML through the use of queryselection
+    and uses insertAdjacentHTML to insert the div after the div starts through the variable declared above called markup */
     document.querySelector(".featured-books").insertAdjacentHTML("afterbegin", markup);
     // Get the id stored in localstorage
     const selectedItem = localStorage.getItem("selectedItem");
-    // After 500 ms (after api call), finding element with the book id that was stored in ls and adding class
+    /* After 500 ms (after the api is called), finds the element with the book id that was stored in
+       localstorage and adds the class "is-selected" to highlight card selection
+       setTimeout used to call a function after a number of ms (500) */
     setTimeout(() => {
       document.getElementById(`${selectedItem}`).classList.add("is-selected");
     }, 500);
+     /* Declared variable under fBooks (Featured Books for the 2) that uses method of document interface to return an array
+     by targeting "featured-book" */
     let fBooks = document.getElementsByClassName("featured-book");
     for(let i = 0; i < fBooks.length; i++) {
       fBooks[i].addEventListener("click", () => {
         const classes = fBooks[i].classList;
-        // Store the selected book id in local storage
         if(classes.contains("is-selected")) {
+        /* If fBooks is selected through the class, then remove the is-selected class and also remove from localstorage */
           fBooks[i].classList.remove("is-selected");
           localStorage.removeItem("selectedItem", fBooks[i].id);
         } else {
+             /* This Stores the selected book's ID into localstorage via is-selected class */
           fBooks[i].classList.add("is-selected");
           localStorage.setItem("selectedItem", fBooks[i].id);
         }
