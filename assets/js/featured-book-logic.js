@@ -45,11 +45,11 @@ const getData = async () => {
       fBooks[i].addEventListener("click", () => {
         const classes = fBooks[i].classList;
         if(classes.contains("is-selected")) {
-        /* If fBooks is selected through the class, then remove the is-selected class and also remove from localstorage */
+        /* If fbooks is selected through the class, then remove the is-selected class and also remove from localstorage */
           fBooks[i].classList.remove("is-selected");
           localStorage.removeItem("selectedItem", fBooks[i].id);
         } else {
-             /* This Stores the selected book's ID into localstorage via is-selected class */
+            /* This Stores the selected book's ID into localstorage via is-selected class */
           fBooks[i].classList.add("is-selected");
           localStorage.setItem("selectedItem", fBooks[i].id);
         }
