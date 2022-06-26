@@ -20,7 +20,6 @@ const featuredBooks = res.items.slice(8,10);
         )}</p>
         </div>
         </div>
-        }
         `;
     });
     document.querySelector(".featured-books").insertAdjacentHTML("afterbegin", markup);
