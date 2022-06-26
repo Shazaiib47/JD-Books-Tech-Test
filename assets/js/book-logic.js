@@ -12,7 +12,7 @@ const fetchData = async () => {
       markup += `
             <div id=${obj.volumeInfo.title
               .split(" ")
-              .join("_")} class="book d-flex">
+              .join("_")} class="book display-flex">
             <div class="book-cover">
             <img class="book-img" src="${
               obj.volumeInfo.imageLinks.thumbnail
