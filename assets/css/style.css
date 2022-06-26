@@ -1,9 +1,24 @@
+/* HTML & General CSS Styling */
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
+body {
+	font-family: "DM Sans", sans-serif;
+	font-family: "Exo", sans-serif;
+	font-family: "Noto Sans", sans-serif;
+	overflow-x: hidden !important;
+}
+
+html {
+	font-size: 62.5%;
+	overflow-x: hidden !important;
+}
+
+/* Burger Styling which will activate in certain screen conditions */
 .burger {
 	display: none;
 	z-index: 100;
@@ -20,6 +35,7 @@
 	color: #233646;
 }
 
+/* Hamburger CSS Styling when Active */
 .burger.active .line2 {
 	display: none;
 }
@@ -41,18 +57,6 @@
 	margin: 4px 0;
 }
 
-body {
-	font-family: "DM Sans", sans-serif;
-	font-family: "Exo", sans-serif;
-	font-family: "Noto Sans", sans-serif;
-	overflow-x: hidden !important;
-}
-
-html {
-	font-size: 62.5%;
-	overflow-x: hidden !important;
-}
-
 .d-flex {
 	display: flex;
 }
@@ -63,7 +67,7 @@ header {
 	align-items: center;
 	justify-content: center;
 }
-
+/* Image Logo Styling */
 #logo {
 	object-fit: cover;
 	width: 10rem;
@@ -80,7 +84,7 @@ header {
 	margin: 0 1rem;
 	font-size: 4rem;
 }
-
+/* Nav Link Styling with List Items as well as Selected State */
 .nav-links {
 	margin-top: 4rem;
 	width: 100%;
@@ -115,7 +119,7 @@ main {
 	font-size: 1.9rem;
 	text-align: center;
 }
-
+/* Books CSS Styling */
 .books {
 	display: flex;
 	flex-wrap: wrap;
@@ -165,7 +169,7 @@ main {
 .little-info {
 	font-size: 1.2rem;
 }
-
+/* Featured Section CSS Styling */
 .featured {
 	flex: 1 1 0;
 	border: 2px solid black;
@@ -214,10 +218,11 @@ main {
 	justify-content: center;
 }
 
+/* Social Media Footer with Display of None for Desktop and Big screens */
 .social-media-footer {
 	display: none;
 }
-
+/* Active state Styling for nav-links */
 .nav-links.active {
 	display: flex;
 	transform: translateX(0);
@@ -226,6 +231,8 @@ main {
 .is-selected {
 	background-color: grey;
 }
+
+/* Media Queries for Screen Sizes up till 1378 pixels */
 
 @media screen and (max-width: 1378px) {
 	main {
@@ -237,11 +244,14 @@ main {
 	}
 }
 
+/* Media Queries for Screen Sizes up till 1042 pixels */
+
 @media screen and (max-width: 1042px) {
 	main {
 		width: 80%;
 	}
 }
+/* Media Queries for Screen Sizes up till 732 pixels */
 
 @media screen and (max-width: 732px) {
 	html {
@@ -297,6 +307,7 @@ main {
 		display: block;
 	}
 }
+/* Media Queries for Screen Sizes up till 572 pixels */
 
 @media screen and (max-width: 572px) {
 	.social-media {
