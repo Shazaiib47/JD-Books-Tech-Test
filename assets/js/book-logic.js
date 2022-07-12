@@ -31,31 +31,39 @@ const fetchData = async () => {
     and uses insertAdjacentHTML to insert the div after the div starts through the variable declared above called markup */
     document.querySelector(".books").insertAdjacentHTML("afterbegin", markup);
     // Defined a variable called selectedItem that uses localstorage to retrieve the declared variable "selectedItem"
-    const selectedItem = localStorage.getItem("selectedItem");
+    //  get array of selected items from localstorage or empty array if not found
+    let selectedItems = JSON.parse(localStorage.getItem("normalSelectedItem")) || [];
     /* After 500 ms (after the api is called), finds the element with the book id that was stored in
-       localstorage and adds the class "is-selected" to highlight card selection
-       setTimeout used to call a function after a number of ms (500) */
+         localstorage and adds the class "is-selected" to highlight card selection
+         setTimeout used to call a function after a number of ms (500) */
     setTimeout(() => {
-      document.getElementById(`${selectedItem}`).classList.add("is-selected");
+        // loop through each item in the array and add is-selected class
+        selectedItems.forEach((selectedItem) => {
+            document.getElementById(`${selectedItem}`).classList.add("is-selected");
+        });
     }, 500);
     /* Declared variable under nBooks (Normal Books for the 8) that uses method of document interface to return an array
-     by targeting "book" */
+       by targeting "book" */
     let nBooks = document.getElementsByClassName("book");
     /* For loop used here to set a variable before the loop starts(nBooks) to add eventlisteners to declared
-       element and using increment operator to increase the value */
-    for(let i = 0; i < nBooks.length; i++) {
-      nBooks[i].addEventListener("click", () => {
-        const classes = nBooks[i].classList;
-        if(classes.contains("is-selected")) {
-        /* If nBooks is selected through the class, then remove the is-selected class and also remove from localstorage */
-          nBooks[i].classList.remove("is-selected");
-          localStorage.removeItem("selectedItem", nBooks[i].id);
-        } else {
-        /* This Stores the selected book's ID into localstorage */
-          nBooks[i].classList.add("is-selected");
-          localStorage.setItem("selectedItem", nBooks[i].id);
-        }
-      });
+         element and using increment operator to increase the value */
+    for (let i = 0; i < nBooks.length; i++) {
+        nBooks[i].addEventListener("click", () => {
+            const classes = nBooks[i].classList;
+            if (classes.contains("is-selected")) {
+                /* If nBooks is selected through the class, then remove the is-selected class*/
+                nBooks[i].classList.remove("is-selected");
+                // remove the selected item from the array
+                selectedItems = selectedItems.filter((item) => item !== nBooks[i].id);
+            } else {
+                /* This Stores the selected book's ID into localstorage */
+                nBooks[i].classList.add("is-selected");
+                // add the selected item to the array
+                selectedItems.push(nBooks[i].id);
+            }
+            // store the updated selectedItems array in localStorage as json
+            localStorage.setItem("normalSelectedItem", JSON.stringify(selectedItems));
+        });
     }
-  };
-  fetchData();
+};
+fetchData();

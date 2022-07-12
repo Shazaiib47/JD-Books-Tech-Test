@@ -5,7 +5,7 @@ const getData = async () => {
     let res = await (await fetch("https://www.googleapis.com/books/v1/volumes?q=HTML5")).json();
     /* Slicing sequence through API above to begin at 8 and end at 10, fetching only 2 books for featured. */
     const featuredBooks = res.items.slice(8, 10);
-     /* Declared a variable called markup to dynamically create a card using divs and assigning classes
+    /* Declared a variable called markup to dynamically create a card using divs and assigning classes
     and using json classes from above API to append to each div to fetch the required data */
     let markup = "";
     featuredBooks.forEach((obj) => {
@@ -27,33 +27,41 @@ const getData = async () => {
          </div>
             `;
     });
-     /* The below inserts the above markup by targeting .featured-books in HTML through the use of queryselection
+    /* The below inserts the above markup by targeting .featured-books in HTML through the use of queryselection
     and uses insertAdjacentHTML to insert the div after the div starts through the variable declared above called markup */
     document.querySelector(".featured-books").insertAdjacentHTML("afterbegin", markup);
     // Get the id stored in localstorage
-    const selectedItem = localStorage.getItem("selectedItem");
+    //  get array of selected items from localstorage or empty array if not found
+    let selectedItems = JSON.parse(localStorage.getItem("featuredSelectedItem")) || [];
     /* After 500 ms (after the api is called), finds the element with the book id that was stored in
-       localstorage and adds the class "is-selected" to highlight card selection
-       setTimeout used to call a function after a number of ms (500) */
+         localstorage and adds the class "is-selected" to highlight card selection
+         setTimeout used to call a function after a number of ms (500) */
     setTimeout(() => {
-      document.getElementById(`${selectedItem}`).classList.add("is-selected");
+        // loop through each item in the array and add is-selected class
+        selectedItems.forEach((selectedItem) => {
+            document.getElementById(`${selectedItem}`).classList.add("is-selected");
+        });
     }, 500);
-     /* Declared variable under fBooks (Featured Books for the 2) that uses method of document interface to return an array
-     by targeting "featured-book" */
+    /* Declared variable under fBooks (Featured Books for the 2) that uses method of document interface to return an array
+       by targeting "featured-book" */
     let fBooks = document.getElementsByClassName("featured-book");
-    for(let i = 0; i < fBooks.length; i++) {
-      fBooks[i].addEventListener("click", () => {
-        const classes = fBooks[i].classList;
-        if(classes.contains("is-selected")) {
-        /* If fbooks is selected through the class, then remove the is-selected class and also remove from localstorage */
-          fBooks[i].classList.remove("is-selected");
-          localStorage.removeItem("selectedItem", fBooks[i].id);
-        } else {
-            /* This Stores the selected book's ID into localstorage via is-selected class */
-          fBooks[i].classList.add("is-selected");
-          localStorage.setItem("selectedItem", fBooks[i].id);
-        }
-      });
+    for (let i = 0; i < fBooks.length; i++) {
+        fBooks[i].addEventListener("click", () => {
+            const classes = fBooks[i].classList;
+            if (classes.contains("is-selected")) {
+                /* If fbooks is selected through the class, then remove the is-selected class and also remove from localstorage */
+                fBooks[i].classList.remove("is-selected");
+                // remove the selected item from the array
+                selectedItems = selectedItems.filter((item) => item !== fBooks[i].id);
+            } else {
+                /* This Stores the selected book's ID into localstorage via is-selected class */
+                fBooks[i].classList.add("is-selected");
+                // add the selected item to the array
+                selectedItems.push(fBooks[i].id);
+            }
+            // store the updated selectedItems array in localStorage as json
+            localStorage.setItem("featuredSelectedItem", JSON.stringify(selectedItems));
+        });
     }
-  };
-  getData();
+};
+getData();
